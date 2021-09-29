@@ -13,9 +13,21 @@
     <title>Used Shoes</title>
 </head>
 <body>
-<div id="comment-form"></div>
+<div id="comment-form">
+    <h2>Create Comment</h2>
+    <form id="comment-form">
+        <label for="comment-title">Title</label>
+        <input type="text" name="title" id="comment-title"/><br><br>
+        <label for="comment-description">Description</label>
+        <input type="text" name="description" id="comment-description"/><br><br>
+        <select name="shoe-id" id="shoe-dropdown">
+        <input type="text" name="shoe" id="shoe-name"/>
+        </select><br>
+        <input type="submit" value= "Create Comment"/>
+    </form>
+</div>
 <div id="shoes"></div>
-<div id="comments"></div>
+<div id="comments-cont"></div>
 
 
     
