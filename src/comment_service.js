@@ -7,8 +7,10 @@ class CommentService {
         fetch(this.port + `/comments`)
         .then(response => response.json())
         .then(data => {
-            for(const comment of data){
-                debugger
+            for(const comment of data){ // loop through data set of comments
+                let c = new Comment(comment) // want to create new comments
+                c.attatchToDom() // create method attatchToDom and declare it inside Comment class becaue we want to be able to call it on a Comment Object
+                // show new comments on DOM
             }
         })
         .catch() //send message to user if things didn't work out
