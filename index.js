@@ -21,5 +21,5 @@ function handleSubmit(e){
 
 
 
-const shoeCall = new ShoeService(port);
+const shoeCall = new ShoeService(port)
 shoeCall.getShoes()

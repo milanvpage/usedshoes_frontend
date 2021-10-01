@@ -13,7 +13,7 @@ class CommentService {
                 // show new comments on DOM
             }
         })
-        .catch() //send message to user if things didn't work out
+        //.catch() //send message to user if things didn't work out
     }
 
     //need to make a function for creating comments
@@ -28,10 +28,20 @@ class CommentService {
                 shoe_id: dropDown.value
             }
         };
+        const configObject = {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+
+            },
+            //information, we're sending it across the web so we need to change the way we're sending it
+            body: JSON.stringify(commentInfo)
+        }
         //debugger
         //need to make a fetch request to create my new comments
         // making a fetch request to send some information back to /comments
-        fetch(this.port + `/comments`)
+        fetch(this.port + `/comments`, configObject)
         .then(response => response.json())
         .then(data => console.log(data))
     };
