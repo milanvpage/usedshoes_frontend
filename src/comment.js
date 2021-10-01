@@ -58,6 +58,8 @@ class Comment {
     }
 
     createEditForm(){ // going to want to grab the div because that's what we want to change
+        const div = this.element.querySelector('div');
+
         debugger
     }
 
