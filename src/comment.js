@@ -17,6 +17,9 @@ class Comment {
         this.element.id = `comment-${id}`; // set an id that equals soemthing unique (not just a number)
         // every time we're going to have a dataset id and an id, we might not need both of these but rather be safe than sorry depedning on how we're going to be grabbing our information and what we end up doing with it
         // can create elements at the same time as creating these Objects that will automatically be associated with whatever object I'm creating
+        this.element.addEventListener('click', this.handleClick)
+        // can put the event listener to edit and delete directly on the entire li from start of initializing the objects in the first place, easier way to do it than other ways
+        
         Comment.all.push(this)
         // going to push in the object we're making into this all
          //debugger
@@ -31,13 +34,34 @@ class Comment {
         <div data-id="${this.id}">
         <h2 class="title">${this.title}</h2>
         <p class="description">${this.description}</p>
+        </div>
         <button class="edit" data-id=${this.id}>Edit Comment</button>
         <button class="delete" data-id=${this.id}> X </button>
 
-        </div>
         `
         return this.element
     };
+
+// ask candice about why the arrow function changes the execution context from an li to the class object itself?
+    handleClick = (e) => { //pass through the event (the target that we're clicking on)
+        if(e.target.innerText === "Edit Comment"){
+        console.log(e.target)
+        this.createEditForm()
+    // debugger
+        }else if(e.target.innerText === "X"){
+            console.log(e.target)
+
+        }else if(e.target.innerText === "Save Comment"){
+            console.log(e.target)
+
+        }
+    }
+
+    createEditForm(){ // going to want to grab the div because that's what we want to change
+        debugger
+    }
+
+    
 
     attatchToDom() {
         //debugger
