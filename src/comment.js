@@ -1,5 +1,5 @@
 class Comment {
-            // help us filter through different sets, some way to iterate through things and like change up the infor you're putting on your page based of this info we're creating here,
+            // help us filter through different sets, some way to iterate through things and like change up the info you're putting on your page based of this info we're creating here,
             // make it a static variable which is simialr in ruby to a class variable have it equal an empty array
             // good way to keep track of all your comments, similar to how we did it in Ruby
     static all = [];
@@ -38,9 +38,9 @@ class Comment {
 
     attatchToDom() {
         //debugger
-        // first need to grab we we want to put this info
-        Comment.cont.appendChild(this.render()) // cont is a static variable so they we we have to call it is one my class
-    // instead of calling this.elelement, we need to make sure that it gets rendered first so we can just call our function render insisde appendChild, beacsue renders return value is going to be the lement have the innerHTML has been entered into it
+        // first need to grab where we want to put this info
+        Comment.cont.appendChild(this.render()) // cont is a static variable so they when we have to call it is  in one my class
+    // instead of calling this.elelement, we need to make sure that it gets rendered first so we can just call our function render insisde appendChild, beacsue renders return value is going to be the element have the innerHTML has been entered into it
     }
 
 
