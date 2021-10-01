@@ -43,7 +43,10 @@ class CommentService {
         // making a fetch request to send some information back to /comments
         fetch(this.port + `/comments`, configObject)
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+                const c = new Comment(data)
+                c.attatchToDom()
+        })
     };
 };
 

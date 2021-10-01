@@ -31,6 +31,9 @@ class Comment {
         <div data-id="${this.id}">
         <h2 class="title">${this.title}</h2>
         <p class="description">${this.description}</p>
+        <button class="edit" data-id=${this.id}>Edit Comment</button>
+        <button class="delete" data-id=${this.id}> X </button>
+
         </div>
         `
         return this.element
