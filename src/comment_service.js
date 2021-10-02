@@ -82,8 +82,13 @@ class CommentService {
         // debugger
     };
 
-    deleteComment(){
+    deleteComment(e){
         debugger // we can look at what event we're passing in when we click on that X
+        const id = e.target.dataset.id// grab the id based off that data id inside the e.target object we're calling
+        e.target.parentElement.remove()// remove from front end// optimisitic rendering and assume it works from the backend
+        fetch(this.port + `/comments`, configObject)
+        .then(response => response.json())
+        .then(json => alert{json.message})    // calling this message here for when im going to my backend
     }
 };
 
