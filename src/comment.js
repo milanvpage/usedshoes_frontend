@@ -46,22 +46,38 @@ class Comment {
     handleClick = (e) => { //pass through the event (the target that we're clicking on)
         if(e.target.innerText === "Edit Comment"){
         console.log(e.target)
+        e.target.innerText = "Save Comment"
         this.createEditForm()
     // debugger
         }else if(e.target.innerText === "X"){
             console.log(e.target)
 
         }else if(e.target.innerText === "Save Comment"){
-            console.log(e.target)
+            console.log("save works")
+            e.target.innerText = "Edit Comment"
+            this.updatedCommentInfo()
 
         }
     }
 
     createEditForm(){ // going to want to grab the div because that's what we want to change
-        const div = this.element.querySelector('div');
-
-        debugger
+        const div = this.element.querySelector('div'); // grab the div for everyone that was "clicked"
+        for(const element of div.children){ // run through this loop, and for everyone of these going to change those fields into inout fields filled out
+            let inputValue = element.innerText
+            let name = element.classList[0]
+            element.outerHTML = `<input type="text" class="edit-${name}" value="${inputValue}"/>`
+        }
+        //debugger
     }
+
+    updatedCommentInfo(){
+        this.title = this.element.querySelector(".edit-title").value;
+        this.description = this.element.querySelector(".edit-description").value; // . means it's a class
+        // going to want to make a patch request with our new info/values
+        commentCall.updateComment
+        //debugger
+    }
+
 
     
 

@@ -3,7 +3,7 @@ class CommentService {
         this.port = port
     };
 
-    getComments() {
+    getComments() { // show info
         fetch(this.port + `/comments`)
         .then(response => response.json())
         .then(data => {
@@ -18,7 +18,7 @@ class CommentService {
 
     //need to make a function for creating comments
     //instance method
-    createComments(){
+    createComments(){ // create info
         //need to be specific and tell it what information we're sending through
         const commentInfo = {
             //debugger
