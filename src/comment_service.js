@@ -73,12 +73,12 @@ class CommentService {
         //going to make our config objet
         //debugger
         fetch(`${this.port}/comments/${id}`, configObject)
-        .then(response => response.json())
-        .then(data => {
-            comment.render() // took out attatchToDom because it was attatching it to the bottom of the page/ bottome of the DOM. so we used the render method to just rerender the object so it'll stay where it's at
-        });
+        .then(response => {comment.render()})
+        //.then(data => {
+          //  comment.render() // took out attatchToDom because it was attatching it to the bottom of the page/ bottome of the DOM. so we used the render method to just rerender the object so it'll stay where it's at
+        //});
         // the difference between this fetch request and the create fetch request is the fetch request that we're making for an update is going to be an individual item comment,
-        
+        // we're not really using this information that's being passed through response.json so we can just call comment.render as an object inside the response function
         // debugger
     };
 
@@ -86,7 +86,7 @@ class CommentService {
         //debugger // we can look at what event we're passing in when we click on that X
         const id = e.target.dataset.id// grab the id based off that data id inside the e.target object we're calling
         e.target.parentElement.remove()// remove from front end// optimisitic rendering and assume it works from the backend
-        fetch(this.port + `/comments`, {method: 'DELETE'}) // don't have to have this as a configObject, I can just put in an object as the second argument too especially when it's something super small - like the only thing i'm doing here is my method for delete ({method:'DELETE'})
+        fetch(this.port + `/comments/${id}`, {method: 'DELETE'}) // don't have to have this as a configObject, I can just put in an object as the second argument too especially when it's something super small - like the only thing i'm doing here is my method for delete ({method:'DELETE'})
         .then(response => response.json()) // get info
         .then(json => alert(json.message))    // calling this message here for when im going to my backend
     }
