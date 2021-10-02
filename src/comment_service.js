@@ -83,12 +83,12 @@ class CommentService {
     };
 
     deleteComment(e){
-        debugger // we can look at what event we're passing in when we click on that X
+        //debugger // we can look at what event we're passing in when we click on that X
         const id = e.target.dataset.id// grab the id based off that data id inside the e.target object we're calling
         e.target.parentElement.remove()// remove from front end// optimisitic rendering and assume it works from the backend
-        fetch(this.port + `/comments`, configObject)
-        .then(response => response.json())
-        .then(json => alert{json.message})    // calling this message here for when im going to my backend
+        fetch(this.port + `/comments`, {method: 'DELETE'}) // don't have to have this as a configObject, I can just put in an object as the second argument too especially when it's something super small - like the only thing i'm doing here is my method for delete ({method:'DELETE'})
+        .then(response => response.json()) // get info
+        .then(json => alert(json.message))    // calling this message here for when im going to my backend
     }
 };
 
