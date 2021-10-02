@@ -73,7 +73,7 @@ class CommentService {
         //going to make our config objet
         //debugger
         fetch(`${this.port}/comments/${id}`, configObject)
-        .then(response => {comment.render()})
+        .then( comment.render()) // we're doing pessimistic rendering here//.then(() => {comment.render()}) // can even get rid of that response and make it an empty arrow function
         //.then(data => {
           //  comment.render() // took out attatchToDom because it was attatching it to the bottom of the page/ bottome of the DOM. so we used the render method to just rerender the object so it'll stay where it's at
         //});
