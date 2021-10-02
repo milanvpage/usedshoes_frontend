@@ -74,9 +74,11 @@ class Comment {
         this.title = this.element.querySelector(".edit-title").value;
         this.description = this.element.querySelector(".edit-description").value; // . means it's a class
         // going to want to make a patch request with our new info/values
-        commentCall.updateComment
+        commentCall.updateComment(this)
         //debugger
     }
+
+    
 
 
     

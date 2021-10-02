@@ -48,6 +48,38 @@ class CommentService {
                 c.attatchToDom()
         })
     };
+
+    updateComment(comment){ // have to make some sort of thing for item for passing it through, just like i did with create
+        const {title, description, id} = comment // make it easier im gonna use destructuring, setting the varibales we need to create a new comment out of here, so inside of here im going to set my title and description 
+        // have it equal my comment, beceause remember when we're doing destructuring you have it equal theobject you're trying to break apart and then you say what you want to set as variables - so we want to set the title and description as variables
+        
+        const commentInfo = { // notice we don't have to do somehting like "titile: title" because using destructuring its smart enough to know that i'm passing through the title as title and description as the description as long as they're named the same
+            title,
+            description,
+            id
+        }
+        // once i have this information i can make myself another object inside of here where we can pass through the title and description
+        
+        const configObject = {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+
+            },
+            //information, we're sending it across the web so we need to change the way we're sending it
+            body: JSON.stringify(commentInfo)
+        }
+        //going to make our config objet
+        fetch(this.port + `/comments/${id}`, configObject)
+        .then(response => response.json())
+        .then(data => {
+            comment.attatchToDom()
+        });
+        // the difference between this fetch request and the create fetch request is the fetch request that we're making for an update is going to be an individual item comment,
+        
+        // debugger
+    }
 };
 
 // return a PROMISE, will be pending resolved or rejected - it's a staus update of what's going on with the fetch
