@@ -71,14 +71,19 @@ class CommentService {
             body: JSON.stringify(commentInfo)
         }
         //going to make our config objet
-        fetch(this.port + `/comments/${id}`, configObject)
+        //debugger
+        fetch(`${this.port}/comments/${id}`, configObject)
         .then(response => response.json())
         .then(data => {
-            comment.attatchToDom()
+            comment.render() // took out attatchToDom because it was attatching it to the bottom of the page/ bottome of the DOM. so we used the render method to just rerender the object so it'll stay where it's at
         });
         // the difference between this fetch request and the create fetch request is the fetch request that we're making for an update is going to be an individual item comment,
         
         // debugger
+    };
+
+    deleteComment(){
+        debugger // we can look at what event we're passing in when we click on that X
     }
 };
 

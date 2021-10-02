@@ -51,6 +51,7 @@ class Comment {
     // debugger
         }else if(e.target.innerText === "X"){
             console.log(e.target)
+            commentCall.deleteComment(e) // passing in the event that we're deleteing, want to beable to grab stuff based on that button
 
         }else if(e.target.innerText === "Save Comment"){
             console.log("save works")
