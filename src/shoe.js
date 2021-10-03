@@ -30,17 +30,20 @@ class Shoe {
 
 render(){ // rendering what I want to put inside of my li element
     this.element.innerHTML = `
+    <div class="shoe-card">
    <div data-id="${this.id}">
-   <img src=${this.image_url} height="300" width="200">
+   <img src=${this.image_url}>
    <h2 class="name">${this.name}</h2>
    <p class="brand">${this.brand}</p>
    <p class="size">${this.size}</p>
    <p class="color">${this.color}</p>
    <p class="yearfounded">${this.yearfounded}</p>
    <p class="condition">${this.condition}</p>
-   </div>
    <button class="edit" data-id=${this.id}>Edit Shoe</button>
    <button class="delete" data-id=${this.id}> X </button>
+   </div>
+   </div>
+   
 
    `
    return this.element
