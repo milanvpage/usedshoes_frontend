@@ -17,7 +17,8 @@ class ShoeService{
                 //debugger
                 // we want to add these objects to our dropDown
                 // need to make a function to add to dropDown
-                s.addToDropDown()
+                //s.addToDropDown()
+                s.attatchToDom()
             });
         })
     }

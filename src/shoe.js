@@ -28,23 +28,37 @@ class Shoe {
          //debugger
     }
 
-    renderShoes(){
-        this.element.innerHTML = `
-        <div data-id=${this.id}>
-        <img src=${this.image_url} height="300" width="200">
-        <p>${this.name}</p>
-        <br><ul>
-        <li>Brand: ${this.brand}</li>
-        <li>Color: ${this.color}</li>
-        <li>${this.size}</li>
-        <li>${this.design}</li>
-        <li>${this.condition}</li>
-        </ul><br>
-        <p>${this.comments}</p>
-        </div>
-        `
-        return this.element
-    };
+render(){ // rendering what I want to put inside of my li element
+    this.element.innerHTML = `
+   <div data-id="${this.id}">
+   <img src=${this.image_url} height="300" width="200">
+   <h2 class="name">${this.name}</h2>
+   <p class="brand">${this.brand}</p>
+   <p class="size">${this.size}</p>
+   <p class="color">${this.color}</p>
+   <p class="yearfounded">${this.yearfounded}</p>
+   <p class="condition">${this.condition}</p>
+   </div>
+   <button class="edit" data-id=${this.id}>Edit Shoe</button>
+   <button class="delete" data-id=${this.id}> X </button>
+
+   `
+   return this.element
+};
+
+handleClick = (e) => { //pass through the event (the target that we're clicking on)
+    if(e.target.innerText === "Edit Comment"){
+    console.log(e.target)
+    
+// debugger
+    }else if(e.target.innerText === "X"){
+        console.log(e.target)
+        
+    }else if(e.target.innerText === "Save Comment"){
+        console.log("save works")
+
+    }
+}
 
     addToDropDown(){// need to invoke addToDropDown() for it to work (invoke inside of ShoeService class beceause that's where we're apending it to the dropDOwn)
         // add info to dropDOwn
@@ -52,8 +66,16 @@ class Shoe {
         const option = document.createElement('option'); // creating this option
         option.value = this.id // adding value to it (the shoe value)
         option.innerText = this.name // creating it's innerText with that shoes name
-        dropDown.apendChild(option) // then pushing it into the dropDOwn (apending it)
+        dropDown.appendChild(option) // then pushing it into the dropDOwn (apending it)
     };
+
+
+    attatchToDom() {
+        //debugger
+        // first need to grab where we want to put this info
+        Shoe.cont.appendChild(this.render()) // cont is a static variable so they when we have to call it is  in one my class
+    // instead of calling this.elelement, we need to make sure that it gets rendered first so we can just call our function render insisde appendChild, beacsue renders return value is going to be the element have the innerHTML has been entered into it
+    }
 };
 
 // attributes :id, :brand, :yearfounded, :color, :size, :design, :condition

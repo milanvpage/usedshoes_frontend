@@ -19,7 +19,10 @@ function handleSubmit(e){
     commentCall.createComments()
 }
 
-
-
 const shoeCall = new ShoeService(port)
+
+const shoeForm = document.getElementById("shoe-form")
+const nameValue = document.getElementById("shoe-name")
+const designValue = document.getElementById("shoe-design")
+
 shoeCall.getShoes()
