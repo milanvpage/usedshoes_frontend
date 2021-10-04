@@ -23,7 +23,7 @@ class ShoeService{
         })
     }
 
-    createShoe(){ // first create the info
+    createShoes(){ // first create the info
         const shoeInfo = {// need to be specific on what information I'm sending through
             shoe: {
                 name: nameValue.value,
@@ -48,9 +48,13 @@ class ShoeService{
 
         // need to make a fetch request to create new Shoes
         // making a fetch request to send the info we make back to /shoes
-        fetch(this.port + `/shoes`, configObject)
-        .then(response => response.json)
-        .then()
+        fetch(`${this.port}/shoes`, configObject)
+        .then(response => response.json())
+        .then(data => {
+            const s = new Shoe(data)
+
+            s.attatchToDom()
+        })
     }
 
 };

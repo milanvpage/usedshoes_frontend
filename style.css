@@ -8,7 +8,7 @@ body {
 img {
     width: 100%;
     border-radius: 12px;
-    height: 214px;
+    height: 15vw/*214px*/;
     object-fit: cover;
 };
 /* Next, we need to style the div element that has the id attribute of container. This will be the element that decides the width of the card and places it in the middle of the view. */
