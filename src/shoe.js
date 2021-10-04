@@ -31,6 +31,7 @@ class Shoe {
 render(){ // rendering what I want to put inside of my li element
     this.element.innerHTML = `
     <div class="shoe-card">
+    <div class="card__details">
    <div data-id="${this.id}">
    <img src=${this.image_url}>
    <h2 class="name">${this.name}</h2>
@@ -43,6 +44,7 @@ render(){ // rendering what I want to put inside of my li element
    <button class="delete" data-id=${this.id}> X </button>
    </div>
    </div>
+   </div>
    
 
    `
@@ -50,14 +52,14 @@ render(){ // rendering what I want to put inside of my li element
 };
 
 handleClick = (e) => { //pass through the event (the target that we're clicking on)
-    if(e.target.innerText === "Edit Comment"){
+    if(e.target.innerText === "Edit Shoe"){
     console.log(e.target)
     
 // debugger
     }else if(e.target.innerText === "X"){
         console.log(e.target)
         
-    }else if(e.target.innerText === "Save Comment"){
+    }else if(e.target.innerText === "Save Shoe"){
         console.log("save works")
 
     }

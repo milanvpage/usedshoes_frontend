@@ -42,6 +42,58 @@ img {
     box-shadow: 3px 4px rgb(167, 204, 167);
 }
 
-/* style the rest of the elements *?
+/* style the rest of the elements */
+
+/* Style div elements that have class equal to name */
+.name {
+    font-size: 24px;
+    font-weight: 600;
+
+    margin-top: 16px;
+}
+
+/* Style p element */
+p {
+    font-size: 14px;
+    color: #7f8c9b;
+    line-height: 150%;
+}
+
+/* Style button element */
+button {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+
+    font-weight: 600;
+    color: #0077ff;
+    background-color: #e0efff;
+
+    /* Button is inline-block element by default, it need to have block display for margin: 0 ato; to work */
+    margin: 0 auto;
+    display: block;
+
+    /* Button is a clickable element, therefore it should have a pointer cursor */
+    cursor: pointer;
+}
+
+.card__details {
+    /* Add space around the details */
+    padding: 16px 8px 8px 8px;
+}
+
+/* When the button is focused or hovered, it's good have some indication for usability. You can do so by switching the text and background colors of the button: */
+
+/* Add style when the button is focused or hovered */
+button:focus,
+button:hover {
+    background-color: #0077ff;
+    color: #e0efff;
+}
+
+/* IN CSS - every element is a box. Each box has the following properties: */
+/* Padding: Space outside the content */
+/* Border: Lines outside the padding */
+/* Margin: Space outside the border */
 
 
