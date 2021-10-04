@@ -24,5 +24,13 @@ const shoeCall = new ShoeService(port)
 const shoeForm = document.getElementById("shoe-form")
 const nameValue = document.getElementById("shoe-name")
 const designValue = document.getElementById("shoe-design")
+const brandValue = document.getElementById("shoe-brand")
+const sizeValue = document.getElementById("shoe-size")
+const colorValue = document.getElementById("shoe-color")
+const yearfoundedValue = document.getElementById("shoe-yearfounded")
+const conditionValue = document.getElementById("shoe-condition")
+
+
+
 
 shoeCall.getShoes()

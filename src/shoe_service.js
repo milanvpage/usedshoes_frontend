@@ -23,8 +23,18 @@ class ShoeService{
         })
     }
 
-    createShoe(){
-        
+    createShoe(){ // first create the info
+        const shoeInfo = {// need to be specific on what information I'm sending through
+            shoe: {
+                name: nameValue.value,
+                brand: brandValue.value,
+                size: sizeValue.value,
+                color: colorValue.value,
+                yearfounded: yearfoundedValue.value,
+                conditionValue: conditionValue.value
+            }
+
+        }
     }
 
 };
