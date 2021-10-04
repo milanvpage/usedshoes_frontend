@@ -33,8 +33,24 @@ class ShoeService{
                 yearfounded: yearfoundedValue.value,
                 conditionValue: conditionValue.value
             }
-
+        
         }
+        const configObject = {
+            method: 'POST',
+
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+
+            body: JSON.stringify(shoeInfo) // info we're sending across the web so we need to change the way we're sending it
+        }
+
+        // need to make a fetch request to create new Shoes
+        // making a fetch request to send the info we make back to /shoes
+        fetch(this.port + `/shoes`, configObject)
+        .then(response => response.json)
+        .then()
     }
 
 };
