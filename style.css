@@ -25,6 +25,7 @@ img {
 
 /* To style the card, we need to select the div element that has the class of card. We also want to give it a white background color, a border, and some space between the content and the border: */
 .shoe-card {
+    text-align: center;
     /* change background color */
     background-color: white;
 
@@ -35,6 +36,10 @@ img {
     padding: 8px;
 
     border-radius: 12px;
+
+    display: inline-grid;
+
+    box-shadow: 3px 4px rgb(167, 204, 167);
 }
 
 /* style the rest of the elements *?
