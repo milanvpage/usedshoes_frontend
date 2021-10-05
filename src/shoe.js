@@ -51,16 +51,21 @@ render(){ // rendering what I want to put inside of my li element
    return this.element
 };
 
+// ask candice about why the arrow function changes the execution context from an li to the class object itself?
 handleClick = (e) => { //pass through the event (the target that we're clicking on)
     if(e.target.innerText === "Edit Shoe"){
     console.log(e.target)
-    
+    e.target.innerText = "Save Shoe"
+    this.createEditForm()
 // debugger
     }else if(e.target.innerText === "X"){
         console.log(e.target)
-        
+        commentCall.deleteShoe(e) // passing in the event that we're deleteing, want to beable to grab stuff based on that button
+
     }else if(e.target.innerText === "Save Shoe"){
         console.log("save works")
+        e.target.innerText = "Edit Shoe"
+        this.updatedShoeInfo()
 
     }
 }
@@ -73,6 +78,14 @@ handleClick = (e) => { //pass through the event (the target that we're clicking 
         option.innerText = this.name // creating it's innerText with that shoes name
         dropDown.appendChild(option) // then pushing it into the dropDOwn (apending it)
     };
+
+    updatedShoeInfo(){
+        this.name = this.element.querySelector(".edit-name").value;
+        this.design = this.element.querySelector(".edit-design").value; // . means it's a class
+        // going to want to make a patch request with our new info/values
+        commentCall.updateShoe(this)
+        //debugger
+    }
 
 
     attatchToDom() {
