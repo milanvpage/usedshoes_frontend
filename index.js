@@ -1,10 +1,10 @@
 const port = `http://localhost:3000`;
 
-
+const shoeForm = document.getElementById("shoe-form")
+const dropDown = document.getElementById("category-dropDown")
 
 const shoeCall = new ShoeService(port)
 
-const shoeForm = document.getElementById("shoe-form")
 const nameValue = document.getElementById("shoe-name")
 const designValue = document.getElementById("shoe-design")
 const brandValue = document.getElementById("shoe-brand")
@@ -17,10 +17,11 @@ shoeForm.addEventListener('submit', handleSubmit)
 
 function handleSubmit(e){
     e.preventDefault();
-    //debugger
+    // debugger
     // need to make a fetch call 
-    shoeCall.createShoes()
+    shoeCall.createShoes() // need to grab info and then make a request to my backend
 }
 
 
-shoeCall.getShoes()
+shoeCall.getShoes('shoe-form')
+

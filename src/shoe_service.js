@@ -24,14 +24,17 @@ class ShoeService{
     }
 
     createShoes(){ // first create the info
+        // debugger
         const shoeInfo = {// need to be specific on what information I'm sending through
             shoe: {
                 name: nameValue.value,
                 brand: brandValue.value,
                 size: sizeValue.value,
                 color: colorValue.value,
+                design: designValue.value,
                 yearfounded: yearfoundedValue.value,
-                conditionValue: conditionValue.value
+                conditionValue: conditionValue.value,
+                category_id: categoryIdValue.value
             }
         
         }
@@ -48,13 +51,9 @@ class ShoeService{
 
         // need to make a fetch request to create new Shoes
         // making a fetch request to send the info we make back to /shoes
-        fetch(`${this.port}/shoes`, configObject)
+        fetch(this.port+ `/shoes`, configObject)
         .then(response => response.json())
-        .then(data => {
-            const s = new Shoe(data)
-
-            s.attatchToDom()
-        })
+        .then(data => console.log(data))
     }
 
     updateShoe(shoe){ // have to make some sort of thing for item for passing it through, just like i did with create

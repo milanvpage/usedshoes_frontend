@@ -18,7 +18,7 @@ class CategoryService{
                 // we want to add these objects to our dropDown
                 // need to make a function to add to dropDown
                 //s.addToDropDown()
-                c.attatchToDom()
+                c.addToDropDown()
             });
         })
     }
