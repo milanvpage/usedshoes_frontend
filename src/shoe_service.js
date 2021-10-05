@@ -34,10 +34,11 @@ class ShoeService{
                 design: designValue.value,
                 yearfounded: yearfoundedValue.value,
                 conditionValue: conditionValue.value,
-                category_id: categoryIdValue.value
+                category_id: dropDown.value
             }
-        
+        //debugger
         }
+        // debugger
         const configObject = {
             method: 'POST',
 

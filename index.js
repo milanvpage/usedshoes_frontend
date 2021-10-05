@@ -1,9 +1,10 @@
 const port = `http://localhost:3000`;
 
 const shoeForm = document.getElementById("shoe-form")
-const dropDown = document.getElementById("category-dropDown")
+const dropDown = document.getElementById("category-dropdown")
 
 const shoeCall = new ShoeService(port)
+const categoryCall = new CategoryService(port)
 
 const nameValue = document.getElementById("shoe-name")
 const designValue = document.getElementById("shoe-design")
@@ -23,5 +24,5 @@ function handleSubmit(e){
 }
 
 
-shoeCall.getShoes('shoe-form')
-
+shoeCall.getShoes()
+categoryCall.getCategories()
