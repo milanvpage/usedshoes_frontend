@@ -39,12 +39,11 @@ render(){ // rendering what I want to put inside of my li element
    <p class="color">${this.color}</p>
    <p class="yearfounded">${this.yearfounded}</p>
    <p class="condition">${this.condition}</p>
+   <p class="design">${this.design}</p>
    </div>
    <button class="edit" data-id=${this.id}>Edit Shoe</button>
    <button class="delete" data-id=${this.id}> X </button>
    
-   
-
    `
    return this.element
 };
@@ -74,13 +73,20 @@ handleClick = (e) => { //pass through the event (the target that we're clicking 
         for(const element of div.children){ // run through this loop and every one of these it's going change it into input fields
             let inputValue = element.innerText;
             let name = element.classList[0] // grab first class name each one of these has
-            element.innerHTML = `<input type="text" class="edit-${name} value="${inputValue}"/>`
+            element.innerHTML = `${name} <input type="text" class="edit-${name} value="${inputValue}"/>`
         }
         
     }
 
     updatedShoeInfo(){
+        debugger
+        this.image_url = this.element.querySelector(".edit-image_url").value;
         this.name = this.element.querySelector(".edit-name").value;
+        this.brand = this.element.querySelector(".edit-brand").value;
+        this.size = this.element.querySelector(".edit-size").value;
+        this.color = this.element.querySelector(".edit-color").value;
+        this.yearfounded = this.element.querySelector(".edit-yearfounded").value;
+        this.condition = this.element.querySelector(".edit-condition").value;
         this.design = this.element.querySelector(".edit-design").value; // . means it's a class
         // going to want to make a patch request with our new info/values
         commentCall.updateShoe(this)
