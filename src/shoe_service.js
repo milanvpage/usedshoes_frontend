@@ -62,8 +62,8 @@ class ShoeService{
     }
 
     updateShoe(shoe){ // have to make some sort of thing for item for passing it through, just like i did with create
-        debugger
-        const {name, brand, size, color, design, yearfounded, condition, image_url, category_id, id} = shoe // make it easier im gonna use destructuring, setting the varibales we need to create a new shoe out of here, so inside of here im going to set my name and brand etc 
+        //debugger
+        const {name, brand, size, color, design, yearfounded, condition, category_id, id} = shoe // make it easier im gonna use destructuring, setting the varibales we need to create a new shoe out of here, so inside of here im going to set my name and brand etc 
         // have it equal my shoe, beceause remember when we're doing destructuring you have it equal the object you're trying to break apart and then you say what you want to set as variables - so we want to set the name and brand etc as variables
         
         const shoeInfo = { // notice we don't have to do somehting like "name: name" because using destructuring its smart enough to know that i'm passing through the name as name and brand as the brand as long as they're named the same
@@ -74,7 +74,6 @@ class ShoeService{
                 design,
                 yearfounded,
                 condition,
-                image_url,
                 category_id,
                 id
         }

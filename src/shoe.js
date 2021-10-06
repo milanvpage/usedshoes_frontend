@@ -33,13 +33,13 @@ render(){ // rendering what I want to put inside of my li element
     
    <div data-id="${this.id}">
    <img class="image_url" src=${this.image_url}>
-   <h2 class="name">${this.name}</h2>
-   <p class="brand">${this.brand}</p>
-   <p class="size">${this.size}</p>
-   <p class="color">${this.color}</p>
-   <p class="yearfounded">${this.yearfounded}</p>
-   <p class="condition">${this.condition}</p>
-   <p class="design">${this.design}</p>
+   <h2 class="name">Name: ${this.name}</h2>
+   <p class="brand">Brand: ${this.brand}</p>
+   <p class="size">Size: ${this.size}</p>
+   <p class="color">Color: ${this.color}</p>
+   <p class="yearfounded">Year Created: ${this.yearfounded}</p>
+   <p class="condition">Condition: ${this.condition}</p>
+   <p class="design">Design: ${this.design}</p>
    </div>
    <button class="edit" data-id=${this.id}>Edit Shoe</button>
    <button class="delete" data-id=${this.id}> X </button>
@@ -80,7 +80,7 @@ handleClick = (e) => { //pass through the event (the target that we're clicking 
 
     updatedShoeInfo(){
        // debugger
-        this.image_url = this.element.querySelector(".edit-image_url").value;
+       // this.image_url = this.element.querySelector(".edit-image_url").value;
         this.name = this.element.querySelector(".edit-name").value;
         this.brand = this.element.querySelector(".edit-brand").value;
         this.size = this.element.querySelector(".edit-size").value;
