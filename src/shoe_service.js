@@ -33,7 +33,8 @@ class ShoeService{
                 color: colorValue.value,
                 design: designValue.value,
                 yearfounded: yearfoundedValue.value,
-                conditionValue: conditionValue.value,
+                image_url: imageUrlValue.value,
+                condition: conditionValue.value,
                 category_id: dropDown.value
             }
         //debugger
@@ -52,19 +53,29 @@ class ShoeService{
 
         // need to make a fetch request to create new Shoes
         // making a fetch request to send the info we make back to /shoes
-        fetch(this.port+ `/shoes`, configObject)
+        fetch(this.port + `/shoes`, configObject)
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+            const s = new Shoe(data)
+            s.attatchToDom()
+        })
     }
 
     updateShoe(shoe){ // have to make some sort of thing for item for passing it through, just like i did with create
-        const {name, design, id} = shoe // make it easier im gonna use destructuring, setting the varibales we need to create a new comment out of here, so inside of here im going to set my title and description 
+        const {name, brand, size, color, design, yearfounded, image_url, condition, category_id, id} = shoe // make it easier im gonna use destructuring, setting the varibales we need to create a new comment out of here, so inside of here im going to set my title and description 
         // have it equal my comment, beceause remember when we're doing destructuring you have it equal theobject you're trying to break apart and then you say what you want to set as variables - so we want to set the title and description as variables
         
         const shoeInfo = { // notice we don't have to do somehting like "titile: title" because using destructuring its smart enough to know that i'm passing through the title as title and description as the description as long as they're named the same
             name,
-            design,
-            id
+                brand,
+                size,
+                color,
+                design,
+                yearfounded,
+                image_url,
+                condition,
+                category_id,
+                id
         }
         // once i have this information i can make myself another object inside of here where we can pass through the title and description
         
@@ -98,6 +109,8 @@ class ShoeService{
         .then(response => response.json()) // get info
         .then(json => alert(json.message))    // calling this message here for when im going to my backend
     }
+
+    
 };
 
 // return a PROMISE, will be pending resolved or rejected - it's a staus update of what's going on with the fetch

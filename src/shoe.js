@@ -30,8 +30,7 @@ class Shoe {
 
 render(){ // rendering what I want to put inside of my li element
     this.element.innerHTML = `
-    <div class="shoe-card">
-    <div class="card__details">
+    
    <div data-id="${this.id}">
    <img src=${this.image_url}>
    <h2 class="name">${this.name}</h2>
@@ -40,11 +39,10 @@ render(){ // rendering what I want to put inside of my li element
    <p class="color">${this.color}</p>
    <p class="yearfounded">${this.yearfounded}</p>
    <p class="condition">${this.condition}</p>
+   </div>
    <button class="edit" data-id=${this.id}>Edit Shoe</button>
    <button class="delete" data-id=${this.id}> X </button>
-   </div>
-   </div>
-   </div>
+   
    
 
    `
@@ -55,12 +53,12 @@ render(){ // rendering what I want to put inside of my li element
 handleClick = (e) => { //pass through the event (the target that we're clicking on)
     if(e.target.innerText === "Edit Shoe"){
     console.log(e.target)
-    e.target.innerText = "Save Shoe"
+    e.target.innerText = "Save Shoe" // e.target is the button
     this.createEditForm()
 // debugger
     }else if(e.target.innerText === "X"){
         console.log(e.target)
-        commentCall.deleteShoe(e) // passing in the event that we're deleteing, want to beable to grab stuff based on that button
+        shoeCall.deleteShoe(e) // passing in the event that we're deleteing, want to beable to grab stuff based on that button
 
     }else if(e.target.innerText === "Save Shoe"){
         console.log("save works")
@@ -69,6 +67,17 @@ handleClick = (e) => { //pass through the event (the target that we're clicking 
 
     }
 }
+
+    createEditForm(){
+        const div = this.element.querySelector('div') // grab this div for whatever one I just clicked
+        //iterate through my div to replace evrything with a shoe form
+        for(const element of div.children){ // run through this loop and every one of these it's going change it into input fields
+            let inputValue = element.innerText;
+            let name = element.classList[0] // grab first class name each one of these has
+            element.innerHTML = `<input type="text" class="edit-${name} value="${inputValue}"/>`
+        }
+        
+    }
 
     updatedShoeInfo(){
         this.name = this.element.querySelector(".edit-name").value;

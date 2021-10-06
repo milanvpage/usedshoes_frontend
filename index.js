@@ -13,6 +13,7 @@ const sizeValue = document.getElementById("shoe-size")
 const colorValue = document.getElementById("shoe-color")
 const yearfoundedValue = document.getElementById("shoe-yearfounded")
 const conditionValue = document.getElementById("shoe-condition")
+const imageUrlValue = document.getElementById("shoe-image_url")
 
 shoeForm.addEventListener('submit', handleSubmit)
 
