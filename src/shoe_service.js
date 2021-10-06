@@ -62,22 +62,23 @@ class ShoeService{
     }
 
     updateShoe(shoe){ // have to make some sort of thing for item for passing it through, just like i did with create
-        const {name, brand, size, color, design, yearfounded, image_url, condition, category_id, id} = shoe // make it easier im gonna use destructuring, setting the varibales we need to create a new comment out of here, so inside of here im going to set my title and description 
-        // have it equal my comment, beceause remember when we're doing destructuring you have it equal theobject you're trying to break apart and then you say what you want to set as variables - so we want to set the title and description as variables
+        debugger
+        const {name, brand, size, color, design, yearfounded, condition, image_url, category_id, id} = shoe // make it easier im gonna use destructuring, setting the varibales we need to create a new shoe out of here, so inside of here im going to set my name and brand etc 
+        // have it equal my shoe, beceause remember when we're doing destructuring you have it equal the object you're trying to break apart and then you say what you want to set as variables - so we want to set the name and brand etc as variables
         
-        const shoeInfo = { // notice we don't have to do somehting like "titile: title" because using destructuring its smart enough to know that i'm passing through the title as title and description as the description as long as they're named the same
+        const shoeInfo = { // notice we don't have to do somehting like "name: name" because using destructuring its smart enough to know that i'm passing through the name as name and brand as the brand as long as they're named the same
             name,
                 brand,
                 size,
                 color,
                 design,
                 yearfounded,
-                image_url,
                 condition,
+                image_url,
                 category_id,
                 id
         }
-        // once i have this information i can make myself another object inside of here where we can pass through the title and description
+        // once i have this information i can make myself another object inside of here where we can pass through the name and brand etc
         
         const configObject = {
             method: 'PATCH',
@@ -92,12 +93,12 @@ class ShoeService{
         //going to make our config objet
         //debugger
         fetch(`${this.port}/shoes/${id}`, configObject)
-        .then( shoe.render()) // we're doing pessimistic rendering here//.then(() => {comment.render()}) // can even get rid of that response and make it an empty arrow function
+        .then( shoe.render()) // we're doing pessimistic rendering here//.then(() => {shoe.render()}) // can even get rid of that response and make it an empty arrow function
         //.then(data => {
-          //  comment.render() // took out attatchToDom because it was attatching it to the bottom of the page/ bottome of the DOM. so we used the render method to just rerender the object so it'll stay where it's at
+          //  shoe.render() // took out attatchToDom because it was attatching it to the bottom of the page/ bottome of the DOM. so we used the render method to just rerender the object so it'll stay where it's at
         //});
-        // the difference between this fetch request and the create fetch request is the fetch request that we're making for an update is going to be an individual item comment,
-        // we're not really using this information that's being passed through response.json so we can just call comment.render as an object inside the response function
+        // the difference between this fetch request and the create fetch request is the fetch request that we're making for an update is going to be an individual item shoe,
+        // we're not really using this information that's being passed through response.json so we can just call shoe.render as an object inside the response function
         // debugger
     };
 

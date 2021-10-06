@@ -32,7 +32,7 @@ render(){ // rendering what I want to put inside of my li element
     this.element.innerHTML = `
     
    <div data-id="${this.id}">
-   <img src=${this.image_url}>
+   <img class="image_url" src=${this.image_url}>
    <h2 class="name">${this.name}</h2>
    <p class="brand">${this.brand}</p>
    <p class="size">${this.size}</p>
@@ -79,7 +79,7 @@ handleClick = (e) => { //pass through the event (the target that we're clicking 
     }
 
     updatedShoeInfo(){
-        debugger
+       // debugger
         this.image_url = this.element.querySelector(".edit-image_url").value;
         this.name = this.element.querySelector(".edit-name").value;
         this.brand = this.element.querySelector(".edit-brand").value;
@@ -89,7 +89,7 @@ handleClick = (e) => { //pass through the event (the target that we're clicking 
         this.condition = this.element.querySelector(".edit-condition").value;
         this.design = this.element.querySelector(".edit-design").value; // . means it's a class
         // going to want to make a patch request with our new info/values
-        commentCall.updateShoe(this)
+        shoeCall.updateShoe(this)
         //debugger
     }
 
