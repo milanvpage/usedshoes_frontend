@@ -21,7 +21,10 @@ function handleSubmit(e){
     e.preventDefault();
     // debugger
     // need to make a fetch call 
-    shoeCall.createShoes() // need to grab info and then make a request to my backend
+    shoeCall.createShoes() 
+    //debugger
+    shoeForm.reset()
+    // need to grab info and then make a request to my backend
 }
 
 

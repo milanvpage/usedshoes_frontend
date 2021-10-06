@@ -13,8 +13,9 @@ class Shoe {
         this.id = id;
         this.comments = comments;
         this.image_url = image_url
-        this.element = document.createElement('li'); // create a list item for each Object we're making
+        this.element = document.createElement('div'); // create a list item for each Object we're making
         this.element.dataset['id'] = id; // want to asign identifiers to this list item, assign a dataset id that's equal to my id
+        this.element.className = 'card';
         // not essential, just another identifier we can have for our list item
         // dataset id's very similar to id's or classes, you just can't call any HTML on them, so it's like a really good identifier to use, and they're repeatable whihc is helpful too, very similar to how classes are repeatable
         this.element.id = `shoe-${id}`; // set an id that equals soemthing unique (not just a number)
@@ -30,10 +31,9 @@ class Shoe {
 
 render(){ // rendering what I want to put inside of my li element
     this.element.innerHTML = `
-    
-   <div data-id="${this.id}">
+   <div class="center" data-id="${this.id}">
    <img class="image_url" src=${this.image_url}>
-   <h2 class="name">Name: ${this.name}</h2>
+   <h2 class="name">${this.name}</h2>
    <p class="brand">Brand: ${this.brand}</p>
    <p class="size">Size: ${this.size}</p>
    <p class="color">Color: ${this.color}</p>
@@ -41,9 +41,10 @@ render(){ // rendering what I want to put inside of my li element
    <p class="condition">Condition: ${this.condition}</p>
    <p class="design">Design: ${this.design}</p>
    </div>
+
    <button class="edit" data-id=${this.id}>Edit Shoe</button>
    <button class="delete" data-id=${this.id}> X </button>
-   
+
    `
    return this.element
 };
@@ -68,7 +69,7 @@ handleClick = (e) => { //pass through the event (the target that we're clicking 
 }
 
     createEditForm(){
-        const div = this.element.querySelector('div') // grab this div for whatever one I just clicked
+        const div = this.element.querySelector('.center') // grab this div for whatever one I just clicked
         //iterate through my div to replace evrything with a shoe form
         for(const element of div.children){ // run through this loop and every one of these it's going change it into input fields
             let inputValue = element.innerText;

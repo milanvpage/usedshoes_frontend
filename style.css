@@ -5,12 +5,22 @@ body {
     font-family: "Raleway", sans-serif;
 };
 
+.image_url {
+    width: 240px;
+    border: 1px solid pink;
+}
+
+
 img {
-    width: 100%;
+    max-width: 100%;
+    height: 100px;
     border-radius: 12px;
-    height: 15vw/*214px*/;
-    object-fit: cover;
+    height: 214px;
+    object-fit: contain;
 };
+
+
+
 /* Next, we need to style the div element that has the id attribute of container. This will be the element that decides the width of the card and places it in the middle of the view. */
 
 /* Style div elements that have class equal to name */
@@ -35,7 +45,7 @@ button {
     border-radius: 50px;
 
     font-weight: 600;
-    color: #0077ff;
+    color: #d266ec;
     background-color: #e0efff;
 
     /* Button is inline-block element by default, it need to have block display for margin: 0 ato; to work */
@@ -46,11 +56,34 @@ button {
     cursor: pointer;
 }
 
+
 /* When the button is focused or hovered, it's good have some indication for usability. You can do so by switching the text and background colors of the button: */
 
 /* Add style when the button is focused or hovered */
 button:focus,
 button:hover {
-    background-color: #0077ff;
+    background-color: #8400ff;
     color: #e0efff;
 }
+
+/*.center {
+    margin: auto;
+    width: 60%;
+    border: 5px solid #FFFF;
+    padding: 10px;
+}*/
+.center{
+    text-align: center;
+}
+
+.card {
+    margin: auto;
+    width: 60%;
+    border: 5px solid #FFFF;
+    padding: 10px;
+}
+/*.shoes-cont {
+  display: flex;
+  align-items: flex-start;
+}*/
+

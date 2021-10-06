@@ -57,6 +57,7 @@ class ShoeService{
         .then(response => response.json())
         .then(data => {
             const s = new Shoe(data)
+
             s.attatchToDom()
         })
     }
@@ -93,9 +94,10 @@ class ShoeService{
         //debugger
         fetch(`${this.port}/shoes/${id}`, configObject)
         .then( shoe.render()) // we're doing pessimistic rendering here//.then(() => {shoe.render()}) // can even get rid of that response and make it an empty arrow function
+        //.then(response => response.json())
         //.then(data => {
-          //  shoe.render() // took out attatchToDom because it was attatching it to the bottom of the page/ bottome of the DOM. so we used the render method to just rerender the object so it'll stay where it's at
-        //});
+        //    shoe.render() // took out attatchToDom because it was attatching it to the bottom of the page/ bottome of the DOM. so we used the render method to just rerender the object so it'll stay where it's at
+       // });
         // the difference between this fetch request and the create fetch request is the fetch request that we're making for an update is going to be an individual item shoe,
         // we're not really using this information that's being passed through response.json so we can just call shoe.render as an object inside the response function
         // debugger
