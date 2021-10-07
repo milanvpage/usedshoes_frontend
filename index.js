@@ -14,6 +14,8 @@ const colorValue = document.getElementById("shoe-color")
 const yearfoundedValue = document.getElementById("shoe-yearfounded")
 const conditionValue = document.getElementById("shoe-condition")
 const imageUrlValue = document.getElementById("shoe-image_url")
+const likesValue = document.getElementById("shoe-like")
+
 
 shoeForm.addEventListener('submit', handleSubmit)
 

@@ -78,12 +78,29 @@ button:hover {
 
 .card {
     margin: auto;
+    margin-bottom: 2rem;
     width: 60%;
     border: 5px solid #FFFF;
     padding: 10px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 3px 4px rgb(167, 204, 167);
+    
 }
 /*.shoes-cont {
   display: flex;
   align-items: flex-start;
 }*/
+/*text-align: center;
+    background-color: white;
 
+    border: 1px solid #bacdd8;
+
+    padding: 8px;
+
+    border-radius: 12px;
+
+    display: inline-grid;
+
+    box-shadow: 3px 4px rgb(167, 204, 167);
+    */

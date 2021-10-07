@@ -1,7 +1,7 @@
 class Shoe {
     static all = [];
     static cont = document.getElementById("shoes-cont") // how we're going to grab this info to attatch it to the DOM
-    constructor({name, brand, yearfounded, color, size, design, condition, id, comments, image_url}){
+    constructor({name, brand, yearfounded, color, size, design, condition, id, comments, image_url, like}){
         //debugger
         this.name = name;
         this.brand = brand;
@@ -12,7 +12,8 @@ class Shoe {
         this.condition = condition;
         this.id = id;
         this.comments = comments;
-        this.image_url = image_url
+        this.image_url = image_url;
+        this.like = like;
         this.element = document.createElement('div'); // create a list item for each Object we're making
         this.element.dataset['id'] = id; // want to asign identifiers to this list item, assign a dataset id that's equal to my id
         this.element.className = 'card';
@@ -41,10 +42,10 @@ render(){ // rendering what I want to put inside of my li element
    <p class="condition">Condition: ${this.condition}</p>
    <p class="design">Design: ${this.design}</p>
    </div>
-
+   <p class="like">${this.like} Likes</p>
+   <button class="like-btn" id=${this.id}>Like <3</button>
    <button class="edit" data-id=${this.id}>Edit Shoe</button>
    <button class="delete" data-id=${this.id}> X </button>
-
    `
    return this.element
 };
@@ -65,6 +66,27 @@ handleClick = (e) => { //pass through the event (the target that we're clicking 
         e.target.innerText = "Edit Shoe"
         this.updatedShoeInfo()
 
+    }else if(e.target.innerText === "Like <3"){
+        console.log("likes Work")
+        let currentLikes = parseInt(e.target.previousElementSibling.innerText)
+        newLikes = currentLikes + 1
+
+        fetch(`${this.port}/shoes/${e.target.id}`, {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": "applictaion/jason",
+                "Accept": "application/json"
+
+            },
+            body: JSON.stringify({
+                like: newLikes
+            })
+        })
+        .then( response => response.json())
+        .then(shoe => {
+            // debugger
+            e.target.previousElementSibling.innerText = `${shoe.like} Likes`
+        })
     }
 }
 

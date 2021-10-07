@@ -35,7 +35,8 @@ class ShoeService{
                 yearfounded: yearfoundedValue.value,
                 image_url: imageUrlValue.value,
                 condition: conditionValue.value,
-                category_id: dropDown.value
+                category_id: dropDown.value,
+                like: likesValue.value
             }
         //debugger
         }
