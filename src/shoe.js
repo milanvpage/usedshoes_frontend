@@ -68,25 +68,10 @@ handleClick = (e) => { //pass through the event (the target that we're clicking 
 
     }else if(e.target.innerText === "Like <3"){
         console.log("likes Work")
-        let currentLikes = parseInt(e.target.previousElementSibling.innerText)
-        newLikes = currentLikes + 1
-
-        fetch(`${this.port}/shoes/${e.target.id}`, {
-            method: 'PATCH',
-            headers: {
-                "Content-Type": "applictaion/jason",
-                "Accept": "application/json"
-
-            },
-            body: JSON.stringify({
-                like: newLikes
-            })
-        })
-        .then( response => response.json())
-        .then(shoe => {
-            // debugger
-            e.target.previousElementSibling.innerText = `${shoe.like} Likes`
-        })
+      //  let currentLikes = parseInt(e.target.previousElementSibling.innerText)
+        // debugger
+      //  newLikes = currentLikes + 1
+        
     }
 }
 

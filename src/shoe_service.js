@@ -36,7 +36,6 @@ class ShoeService{
                 image_url: imageUrlValue.value,
                 condition: conditionValue.value,
                 category_id: dropDown.value,
-                like: likesValue.value
             }
         //debugger
         }
@@ -103,6 +102,26 @@ class ShoeService{
         // we're not really using this information that's being passed through response.json so we can just call shoe.render as an object inside the response function
         // debugger
     };
+
+    //createLikes(){
+      //  fetch(`${this.port}/shoes/${e.target.id}`, {
+        //    method: 'PATCH',
+          //  headers: {
+            //    "Content-Type": "applictaion/jason",
+              //  "Accept": "application/json"
+
+           // },
+          //  body: JSON.stringify({
+            //    like: newLikes
+          //  })
+       // })
+       // .then( response => response.json())
+       // .then(shoe => {
+            // debugger
+         //   e.target.previousElementSibling.innerText
+           // .innerText = `${shoe.like} Likes`
+       // })
+   // }
 
     deleteShoe(e){
         //debugger // we can look at what event we're passing in when we click on that X
