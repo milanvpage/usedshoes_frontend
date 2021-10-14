@@ -1,7 +1,7 @@
 class Shoe {
     static all = [];
     static cont = document.getElementById("shoes-cont") // how we're going to grab this info to attatch it to the DOM
-    constructor({name, brand, yearfounded, color, size, design, condition, id, comments, image_url, like}){
+    constructor({name, brand, yearfounded, color, size, design, condition, id, image_url, category_id}){
         //debugger
         this.name = name;
         this.brand = brand;
@@ -11,11 +11,11 @@ class Shoe {
         this.design = design;
         this.condition = condition;
         this.id = id;
-        this.comments = comments;
+      //  this.likes = likes;
+        this.category_id = category_id;
         this.image_url = image_url;
-        this.like = like;
-        this.element = document.createElement('div'); // create a list item for each Object we're making
-        this.element.dataset['id'] = id; // want to asign identifiers to this list item, assign a dataset id that's equal to my id
+        this.element = document.createElement('div'); // create a div item for each Object we're making
+        this.element.dataset['id'] = id; // want to asign identifiers to this div item, assign a dataset id that's equal to my id
         this.element.className = 'card';
         // not essential, just another identifier we can have for our list item
         // dataset id's very similar to id's or classes, you just can't call any HTML on them, so it's like a really good identifier to use, and they're repeatable whihc is helpful too, very similar to how classes are repeatable
@@ -42,7 +42,7 @@ render(){ // rendering what I want to put inside of my li element
    <p class="condition">Condition: ${this.condition}</p>
    <p class="design">Design: ${this.design}</p>
    </div>
-   <p class="like">${this.like} Likes</p>
+   <!--- <p class="like">${this.likes} Likes</p> -->
    <button class="like-btn" id=${this.id}>Like <3</button>
    <button class="edit" data-id=${this.id}>Edit Shoe</button>
    <button class="delete" data-id=${this.id}> X </button>
@@ -68,9 +68,9 @@ handleClick = (e) => { //pass through the event (the target that we're clicking 
 
     }else if(e.target.innerText === "Like <3"){
         console.log("likes Work")
-      //  let currentLikes = parseInt(e.target.previousElementSibling.innerText)
-        // debugger
-      //  newLikes = currentLikes + 1
+        let currentLikes = parseInt(e.target.previousElementSibling.innerText)
+         
+        newLikes = currentLikes + 1
         
     }
 }

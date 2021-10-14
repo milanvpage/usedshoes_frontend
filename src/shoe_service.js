@@ -103,25 +103,29 @@ class ShoeService{
         // debugger
     };
 
-    //createLikes(){
-      //  fetch(`${this.port}/shoes/${e.target.id}`, {
-        //    method: 'PATCH',
-          //  headers: {
-            //    "Content-Type": "applictaion/jason",
-              //  "Accept": "application/json"
+// createLikes(){
+//     fetch(`${this.port}/shoes/${e.target.id}`, {
+//         method: 'PATCH',
+//         headers: {
+//             "Content-Type": "applictaion/jason",
+//             "Accept": "application/json"
 
-           // },
-          //  body: JSON.stringify({
-            //    like: newLikes
-          //  })
-       // })
-       // .then( response => response.json())
-       // .then(shoe => {
-            // debugger
-         //   e.target.previousElementSibling.innerText
-           // .innerText = `${shoe.like} Likes`
-       // })
-   // }
+//         },
+//         body: JSON.stringify({
+//             like: newLikes
+//         })
+//     })
+//     .then( response => response.json())
+//     .then(shoe => {
+//         // debugger
+//         e.target.previousElementSibling.innerText
+//         .innerText = `${shoe.likes} Likes`
+//     })
+//}
+
+
+
+
 
     deleteShoe(e){
         //debugger // we can look at what event we're passing in when we click on that X
@@ -139,3 +143,6 @@ class ShoeService{
 // rememeber the FETCH is asynchronous, so it doesn't just happen instantly, IT TAKES SOME TIME
 // promise gives feed back like "did it work", "did this get fullfilled", "is it still pending(which means it's still waiting a second)", "Or didi it get rejected(which means it didn't go through)"
 // good reason to use a .catch
+
+//Pessimistic rendering waiting for backend to update and then sending it to the frontend
+//Optimistic rendering updating the frontend before the backend saves/loads
