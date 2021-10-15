@@ -56,6 +56,7 @@ handleClick = (e) => { //pass through the event (the target that we're clicking 
     console.log(e.target)
     e.target.innerText = "Save Shoe" // e.target is the button
     this.createEditForm()
+
 // debugger
     }else if(e.target.innerText === "X"){
         console.log(e.target)
@@ -71,8 +72,10 @@ handleClick = (e) => { //pass through the event (the target that we're clicking 
     //     let currentLikes = parseInt(e.target.previousElementSibling.innerText)
          
     //     newLikes = currentLikes + 1
+    }else if(e.target.innerText === "Create New Shoe"){
+        console.log("create shoe works")
         
-     }
+    }
 }
 
     createEditForm(){
@@ -84,7 +87,7 @@ handleClick = (e) => { //pass through the event (the target that we're clicking 
             
             element.innerHTML = `${name} <input type="text" class="edit-${name}" value="${inputValue}"/>`
         
-        }
+        } // downfsll is you have to do all the types as "text" or "integer" depending on what you want, but you can't do multiple different types
         
         
     }
@@ -95,14 +98,15 @@ handleClick = (e) => { //pass through the event (the target that we're clicking 
     //     const name = div.children[0].innerText
     //     const brand = div.children[1].innerText // do it for each attribute
     //     div.innerHTML =
-    //     `<input type="text">
-    //     <input type="text">
+    //     `<input type="text" id="edit-${name}" value="${name}">
+    //     <input type="text" id="${brand}" value="${brand}">
     //     `
     //     //do it for each attribute
     // }
 
+    
     updatedShoeInfo(){
-       // debugger
+       // debugger // querySelector is allways going to give me that first and only return
        // this.image_url = this.element.querySelector(".edit-image_url").value;
         this.name = this.element.querySelector(".edit-name").value;
         this.brand = this.element.querySelector(".edit-brand").value;
