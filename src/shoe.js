@@ -66,13 +66,13 @@ handleClick = (e) => { //pass through the event (the target that we're clicking 
         e.target.innerText = "Edit Shoe"
         this.updatedShoeInfo()
 
-    }else if(e.target.innerText === "Like <3"){
-        console.log("likes Work")
-        let currentLikes = parseInt(e.target.previousElementSibling.innerText)
+    // }else if(e.target.innerText === "Like <3"){
+    //     console.log("likes Work")
+    //     let currentLikes = parseInt(e.target.previousElementSibling.innerText)
          
-        newLikes = currentLikes + 1
+    //     newLikes = currentLikes + 1
         
-    }
+     }
 }
 
     createEditForm(){
@@ -81,10 +81,25 @@ handleClick = (e) => { //pass through the event (the target that we're clicking 
         for(const element of div.children){ // run through this loop and every one of these it's going change it into input fields
             let inputValue = element.innerText;
             let name = element.classList[0] // grab first class name each one of these has
-            element.innerHTML = `${name} <input type="text" class="edit-${name} value="${inputValue}"/>`
+            
+            element.innerHTML = `${name} <input type="text" class="edit-${name}" value="${inputValue}"/>`
+        
         }
         
+        
     }
+
+    // if we weren't inside a JavaScript Class
+    // function createEditForm(editBtn){
+    //     const div = editBtn.previousElementSibling;
+    //     const name = div.children[0].innerText
+    //     const brand = div.children[1].innerText // do it for each attribute
+    //     div.innerHTML =
+    //     `<input type="text">
+    //     <input type="text">
+    //     `
+    //     //do it for each attribute
+    // }
 
     updatedShoeInfo(){
        // debugger
