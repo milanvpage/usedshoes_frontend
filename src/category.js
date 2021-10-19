@@ -8,17 +8,28 @@ class Category {
         this.name = name;
         this.id = id;
         this.shoes = shoes;
+        this.active = false // this has to do with when I click on my catgory if it's going to be colored or not
     
-        this.element = document.createElement('button')
+        this.element = document.createElement('button') // everyone of my categories will be creating a button
 
         Category.all.push(this)
 
     }
 
     render(){
-        this.element.innerText = this.name
-        this.element.id = `category-${this.id}`
-        return this.element
+        this.element.innerText = this.name //inner text is the name appear on page
+        this.element.id = `category-${this.id}` // give an id of catgory with this.id
+        return this.element //always want to return things in all our functions
+    }
+
+    addToDom(){ 
+        Category.categoryContainer.append(this.render()) //calling static variable categoryContainer (class variable so we're calling it on the class itself)
+        // appending this.render which is goingto be the return of this.elemnt once that innerText is added
+        this.addListeners() // calling addlisteners
+    }
+
+    addListeners(){ // add eventlisteners on to each individual catgory button
+        this.element.addEventListener('click', this.setActiveCategory) // going to be a click and then call this.setActiveCatgory
     }
 
     addToDropDown(){
