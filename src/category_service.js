@@ -19,7 +19,8 @@ class CategoryService{
                 // we want to add these objects to our dropDown
                 // need to make a function to add to dropDown
                 // if (shoeForm === 'block'){
-                    c.addToDropDown()
+                    c.addToDom() // for buttons
+                    c.addToDropDown() // dropDown
                 // }else {
                     // c.attatchToDom()
                 // }

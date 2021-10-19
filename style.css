@@ -51,6 +51,7 @@ button {
     /* Button is inline-block element by default, it need to have block display for margin: 0 ato; to work */
     margin: 0 auto;
     display: block;
+    margin-bottom: 2rem;
 
     /* Button is a clickable element, therefore it should have a pointer cursor */
     cursor: pointer;
@@ -64,6 +65,29 @@ button:focus,
 button:hover {
     background-color: #8400ff;
     color: #e0efff;
+}
+
+.title {
+    text-align: center;
+    color:rgb(97, 29, 143);
+    font-size: 45px;
+
+}
+.cat-cont {
+    text-align: center;
+}
+
+.cat-button {
+    background-color: rgb(0, 174, 255);
+    color: rgb(97, 29, 143);
+    display: inline-block;
+
+}
+.activated {
+    background-color: blueviolet;
+   /* border-radius: 0px 5px 5px 0px; */
+    border: 1px solid;
+    color: white;
 }
 
 /*.center {
