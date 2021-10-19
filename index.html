@@ -14,10 +14,19 @@
     <title>Used Shoes</title>
 </head>
 <body>
+<form>
+    <div class="search-bar">
+        <input type="text" class="search-by-category-name" placeholder="Search.." name="name">
+        <button class="search-btn" type="submit">Search</button>
+    </div>
+</form>
+
+    <h1>Used Shoes App</h1>
+    <div class="category-cont" id="category-cont"></div>
+
     <!---<button type="button" id="shoe-form-btn">Upload Used Shoes</button>-->
     <button onclick="toggle()" id="shoe-form-btn">Upload Used Shoes</button>
     <div id="shoe-form-cont"></div>
-    <h2>Upload Used Shoes</h2>
     <form id="shoe-form">
 
         <label for="shoe-name">Name</label>

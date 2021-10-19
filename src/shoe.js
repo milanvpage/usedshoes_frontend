@@ -1,3 +1,6 @@
+// BENEFIT OF CLASSES IS HOW EASY IT IS TO MANIPULATE OUR DATA
+
+//static is something you run on a class as a WHOLE, kinda like "self" in RUby
 class Shoe {
     static all = [];
     static cont = document.getElementById("shoes-cont") // how we're going to grab this info to attatch it to the DOM
@@ -24,8 +27,10 @@ class Shoe {
         // can create elements at the same time as creating these Objects that will automatically be associated with whatever object I'm creating
         this.element.addEventListener('click', this.handleClick)
         // can put the event listener to edit and delete directly on the entire li from start of initializing the objects in the first place, easier way to do it than other ways
-        
         Shoe.all.push(this)
+        // addEventListener('click', this.handleSearch)
+
+
         // going to push in the object we're making into this all
          //debugger
     }
@@ -43,11 +48,12 @@ render(){ // rendering what I want to put inside of my li element
    <p class="design">Design: ${this.design}</p>
    </div>
    <!--- <p class="like">${this.likes} Likes</p> -->
-   <button class="like-btn" id=${this.id}>Like <3</button>
    <button class="edit" data-id=${this.id}>Edit Shoe</button>
    <button class="delete" data-id=${this.id}> X </button>
    `
+   
    return this.element
+   
 };
 
 // ask candice about why the arrow function changes the execution context from an li to the class object itself?
@@ -72,13 +78,26 @@ handleClick = (e) => { //pass through the event (the target that we're clicking 
     //     let currentLikes = parseInt(e.target.previousElementSibling.innerText)
          
     //     newLikes = currentLikes + 1
-    }else if(e.target.innerText === "Create New Shoe"){
-        console.log("create shoe works")
-        
     }
 }
 
-    createEditForm(){
+// handleSearch = (e) => {
+//     if (e.target.innerText === "Search"){
+//     console.log("search works")
+//     }
+//     // const searchString = e.target.value.toLowerCase();
+//     // searchString
+
+// }
+
+// searchShoes(){
+//     let shoe = Shoe.all.filter( shoe => e.innerText.value === `${input}`)
+//     return
+//     console.log(shoe)
+// }
+    
+
+createEditForm(){
         const div = this.element.querySelector('.center') // grab this div for whatever one I just clicked
         //iterate through my div to replace evrything with a shoe form
         for(const element of div.children){ // run through this loop and every one of these it's going change it into input fields
@@ -119,6 +138,14 @@ handleClick = (e) => { //pass through the event (the target that we're clicking 
         shoeCall.updateShoe(this)
         //debugger
     }
+
+    // searchBar(){
+    //     const searchBar = document.getElementById('.search-bar')
+    //     searchBar.addEventListener('input', e => {
+    //         e.preventDefault();
+    //         grabSearchedShoe()
+    //     })
+    // };
 
 
     attatchToDom() {

@@ -18,7 +18,11 @@ class CategoryService{
                 // debugger
                 // we want to add these objects to our dropDown
                 // need to make a function to add to dropDown
-                c.addToDropDown()
+                // if (shoeForm === 'block'){
+                    c.addToDropDown()
+                // }else {
+                    // c.attatchToDom()
+                // }
                // debugger
             })
         })

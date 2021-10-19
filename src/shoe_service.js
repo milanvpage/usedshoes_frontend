@@ -6,7 +6,7 @@ class ShoeService{
     getShoes(){
         fetch(`${this.port}/shoes`)
         .then(response => response.json())
-        .then(json => {
+        .then(json => { //RETURNS A PROMISE and if the promise is fullfilled it moves on to the callback function we'reusing
             json.forEach(element => {
                 //debugger
 // we can just pass in our json the way it is, unlike the other example with fastJSON instead of Active Model Serializer, where we have to break it up differently
@@ -22,6 +22,16 @@ class ShoeService{
             });
         })
     }
+
+    // searchShoes(){
+    //     fetch(`${this.port}/shoes/${id}`)
+    //     .then(response => response.json())
+    //     .then(json => {
+    //         json.forEach(element => {    }
+    //         }
+    //     }
+    // }
+
 
     createShoes(){ // first create the info
         // debugger
@@ -124,9 +134,6 @@ class ShoeService{
 //}
 
 
-
-
-
     deleteShoe(e){
         //debugger // we can look at what event we're passing in when we click on that X
         const id = e.target.dataset.id// grab the id based off that data id inside the e.target object we're calling
@@ -136,6 +143,7 @@ class ShoeService{
         .then(json => alert(json.message))    // calling this message here for when im going to my backend
     }
 
+    
     
 };
 

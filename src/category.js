@@ -1,12 +1,25 @@
 class Category {
+    static all = []
+
+    static categoryContainer = document.getElementById('cat-cont')
+
     constructor({name, id, shoes}){
         //debugger
         this.name = name;
         this.id = id;
         this.shoes = shoes;
+    
+        this.element = document.createElement('button')
+
+        Category.all.push(this)
+
     }
 
-
+    render(){
+        this.element.innerText = this.name
+        this.element.id = `category-${this.id}`
+        return this.element
+    }
 
     addToDropDown(){
         // need to invoke addToDropDown() for it to work (invoke inside of ShoeService class beceause that's where we're apending it to the dropDOwn)
@@ -21,4 +34,4 @@ class Category {
         dropDown.appendChild(option) // then pushing it into the dropDOwn (apending it)
         //debugger
     };
-}
+};
