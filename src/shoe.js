@@ -36,30 +36,43 @@ class Shoe {
     }
 
     static filteredByCategory(filteredCategory){
-        // debugger type into console filteredCategory to make sure you're getting the right Category
-        if(filteredCategory){ // if the category exists filter through the Shoes
-            const filteredShoes = Shoe.all.filter((s) => {
-                //debugger
-                // if there's a match it will return that item for you and add it to this array it's making Or if ther'es nto a match it just deltes it from the list basically
-                return s.category_id === parseInt(filteredCategory.id) // becasue it shows up as a string not a real integer so we have to change it to an integer to properly compare its id to the Shoes id
-                // i'm not passing through all the shoes, only the shoes whose ID's match the category, and then I loop through those
-
-// need to "return" all the correct ones
-            })
-            //once we have this info we need to display it onto the DOM
-            // need to get rid of the other info
-            Shoe.cont.innerHTML = ""; // loop through and attch everything the dom
-            //debugger
-            //once we have out filter  and have those empty I'm gonna want to fill it with my new informatin
-        for(const shoe of filteredShoes){
-            shoe.attatchToDom()
-        }
-        }else{
-            Shoe.cont.innerHTML = "";
-            for(const shoe of Shoe.all){
-                shoe.attatchToDom()
+        if(filteredCategory){
+            for(const s of Shoe.all){
+            if(s.category_id === parseInt(filteredCategory.id)){
+                s.element.style.display = ""
+            }else{
+                s.element.style.display = "none"
             }
-        }
+            } // this way it's simpler code to read and you can click off of the category and display the rest of the shoes on the page too
+        }else{
+            for(const s of Shoe.all){
+                s.element.style.display = ""
+            }
+    }
+        // debugger type into console filteredCategory to make sure you're getting the right Category
+//         if(filteredCategory){ // if the category exists filter through the Shoes
+//             const filteredShoes = Shoe.all.filter((s) => {
+//                 //debugger
+//                 // if there's a match it will return that item for you and add it to this array it's making Or if ther'es nto a match it just deltes it from the list basically
+//                 return s.category_id === parseInt(filteredCategory.id) // becasue it shows up as a string not a real integer so we have to change it to an integer to properly compare its id to the Shoes id
+//                 // i'm not passing through all the shoes, only the shoes whose ID's match the category, and then I loop through those
+
+// // need to "return" all the correct ones
+//             })
+//             //once we have this info we need to display it onto the DOM
+//             // need to get rid of the other info
+//             Shoe.cont.innerHTML = ""; // loop through and attch everything the dom
+//             //debugger
+//             //once we have out filter  and have those empty I'm gonna want to fill it with my new informatin
+//         for(const shoe of filteredShoes){
+//             shoe.attatchToDom()
+//         }
+//         }else{
+//             Shoe.cont.innerHTML = "";
+//             for(const shoe of Shoe.all){
+//                 shoe.attatchToDom()
+//             }
+//         }
     }
 
 render(){ // rendering what I want to put inside of my li element
