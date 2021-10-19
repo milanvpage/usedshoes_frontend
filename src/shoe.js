@@ -42,13 +42,23 @@ class Shoe {
                 //debugger
                 // if there's a match it will return that item for you and add it to this array it's making Or if ther'es nto a match it just deltes it from the list basically
                 return s.category_id === parseInt(filteredCategory.id) // becasue it shows up as a string not a real integer so we have to change it to an integer to properly compare its id to the Shoes id
+                // i'm not passing through all the shoes, only the shoes whose ID's match the category, and then I loop through those
+
 // need to "return" all the correct ones
             })
             //once we have this info we need to display it onto the DOM
             // need to get rid of the other info
-            
+            Shoe.cont.innerHTML = ""; // loop through and attch everything the dom
+            //debugger
+            //once we have out filter  and have those empty I'm gonna want to fill it with my new informatin
+        for(const shoe of filteredShoes){
+            shoe.attatchToDom()
+        }
         }else{
-
+            Shoe.cont.innerHTML = "";
+            for(const shoe of Shoe.all){
+                shoe.attatchToDom()
+            }
         }
     }
 
