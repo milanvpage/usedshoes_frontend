@@ -1,5 +1,6 @@
 const port = `http://localhost:3000`;
 
+// const sortShoes = document.getElementById("sort-id")
 const searchBar = document.getElementById("search-bar")
 const shoeForm = document.getElementById("shoe-form")
 let shoeFormBtn = document.getElementById('shoe-form-btn')
@@ -32,6 +33,27 @@ function handleSubmit(e){
     shoeForm.reset()
     // need to grab info and then make a request to my backend
 }
+
+
+    // const sortShoes = document.getElementById("sort-id")
+    // sortShoes.addEventListener("click", sortByName)
+
+    // function sortByName(e){
+    //     // debugger
+    //     e.preventDefault()
+    //     console.log(Shoe.sortByName())
+        
+
+    // }
+
+
+
+
+
+
+
+
+
 
 // function handleSearch(e){
 //     e.preventDefault();

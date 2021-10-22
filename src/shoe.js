@@ -3,9 +3,12 @@
 //static is something you run on a class as a WHOLE, kinda like "self" in RUby
 class Shoe {
     static all = [];
-    static cont = document.getElementById("shoes-cont") // how we're going to grab this info to attatch it to the DOM
+    static btn = document.getElementById("sort-id")
+    static cont = document.getElementById("shoes-cont")
+    // how we're going to grab this info to attatch it to the DOM
     constructor({name, brand, yearfounded, color, size, design, condition, id, image_url, category_id}){
         //debugger
+        // this.active = false 
         this.name = name;
         this.brand = brand;
         this.yearfounded = yearfounded;
@@ -28,12 +31,74 @@ class Shoe {
         this.element.addEventListener('click', this.handleClick)
         // can put the event listener to edit and delete directly on the entire li from start of initializing the objects in the first place, easier way to do it than other ways
         Shoe.all.push(this)
-        // addEventListener('click', this.handleSearch)
+        Shoe.btn.addEventListener('click', Shoe.handleSort)
 
 
         // going to push in the object we're making into this all
          //debugger
     }
+
+// addListener(){
+//     Shoe.btn.addEventListener("click", this.sortedShoes)
+// }
+
+// sortedShoes(){
+//     let sortedShoes //declaring outside scope, just want to be able to have access to it outside, want filtered Category what that category is if all of this is true
+//         Shoe.all.forEach(s => { // iterating through all my catgory objects
+//             // saying we want this.active to be false and c.element and this.element to equal, this.element is the thing we just cliked on, c.element is the category itself, and we need them to equal eachother
+//             if(s.element === this.element && !this.active) { // if c's element which we know is the button is equal to this.element which is going to be whatver I'm clicking on and it's not curretly active (that color it turns when I click on it, purple), then I'll set the class list as activated
+//                 s.element.classList.add('activated')
+//                 s.active = true // and set the active variable status to true
+//                 // assign filteredCategory to the cetgory that's going through, which is c
+//                 sortedShoes = s
+//             }else{
+//                 s.element.classList.remove('activated') // if i click on it and it's already active, I take that catgorie's elemnt and remove that 'activated' class
+//                 s.active = false // which means it'll go back tonormal and I will set my active status to false
+//             }
+//             Shoe.sortByName(sortedShoes)
+//         })
+// }
+static handleSort = (e) => {
+    if(e.target.innerText === "Sort Shoes"){
+        Shoe.sortByName()
+        // Shoe.sortByName()
+    }
+}
+
+
+static sortByName(){
+    //  debugger
+    // let  s = Shoe.all
+        let shoes = Shoe.all.sort(function(a,b) {
+        let textA = a.name.toUpperCase();
+        let textB = b.name.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        //     // debugger
+        //   return a.name.localCompare(b.name);
+        // return collator.compare(a.name, b.name);
+    }) 
+this.sortedShoes(shoes)//       return shoes.forEach(s => {
+// // debugger      
+//         s.render()
+//         debugger
+// })
+    // Shoe.sortedShoes(sortByName())
+      // console.log(sortedShoes)
+}
+
+static sortedShoes(shoes){
+    // debugger
+    return shoes.forEach(s => {
+        Shoe.cont.appendChild(s.render())
+    })
+    // if(shoes){
+    //     for(const s of Shoe.sortByName()){
+    //         s.element.style.display = ""
+    //     }
+    // }
+}
+
+
 
     static filteredByCategory(filteredCategory){
         if(filteredCategory){
@@ -193,7 +258,6 @@ createEditForm(){
         // first need to grab where we want to put this info
         Shoe.cont.appendChild(this.render()) // cont is a static variable so they when we have to call it is  in one my class
     // instead of calling this.elelement, we need to make sure that it gets rendered first so we can just call our function render insisde appendChild, beacsue renders return value is going to be the element have the innerHTML has been entered into it
-    }
-};
+}
 
-// attributes :id, :brand, :yearfounded, :color, :size, :design, :condition
+};
